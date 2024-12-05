@@ -2,18 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-const Alert = props => {
-	// Add the condition inside this function
-
-	return (
-		<div className="alert alert-primary" role="alert">
-			This is a primary alert - check it out!
-		</div>
-	);
+const Alert = (props) => {
+	if (props.show === true) {
+		return (
+			<div className="alert alert-primary" role="alert">
+				{props.text}
+			</div>
+		);
+	} else {
+		return  (
+			<div className="alert alert-primary" role="alert">
+				{props.text}
+			</div>
+		);
+	}
 };
 
 Alert.propTypes = {
-	
+	show: PropTypes.bool,
+	text: PropTypes.string,
 };
 
 // Here is where the <Alert /> component is being used, you don't have to edit this part

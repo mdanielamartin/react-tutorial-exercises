@@ -2,28 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-const colorClasses = {
-	red: "alert-danger",
-	yellow: "alert-warning",
-};
-const Alert = (props) => {
+const Alert = props => {
+	// Add the condition inside this function
+
 	return (
-		<div className={`alert ${colorClasses[props.color]}`} role="alert">
-			{props.text}
+		<div className="alert alert-primary" role="alert">
+			This is a primary alert - check it out!
 		</div>
 	);
 };
+
 Alert.propTypes = {
-	color: PropTypes.string,
-	text: PropTypes.string,
+	
 };
 
 // Here is where the <Alert /> component is being used, you don't have to edit this part
 // But it helps you understand what properties are being passed to the component
 ReactDOM.render(
 	<div>
-		<Alert text="OMG! Something really bad has happened!" color="red" />
-		<Alert text="Well, it is not that bad after all!" color="yellow" />
+		<Alert show={true} text="This is a primary alert - check it out!" />
+		<Alert show={false} text="This alert shouldn't appear" />
 	</div>,
 	document.querySelector("#myDiv")
 );
